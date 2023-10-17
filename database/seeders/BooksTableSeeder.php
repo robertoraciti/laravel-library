@@ -28,6 +28,7 @@ class BooksTableSeeder extends Seeder
         $book->publishing_year = $faker->year();
         $book->pages = $faker->numberBetween(30,999);
         $book->price = $faker->randomFloat(2, 5, 70);
+        $book->save();
 }
     }
 }
