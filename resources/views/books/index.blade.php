@@ -23,7 +23,9 @@
                 <td>{{$book->isbn}}</td>
                 <td>{{$book->genre}}</td>
                 <td>{{$book->price}}</td>
-                <td></td>
+                <td>
+                  <a href= " {{ route('books.show', $book )}}"> Dettagli </a>
+                </td>
               </tr>
                 @endforeach
               
