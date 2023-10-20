@@ -26,6 +26,7 @@
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('books.show', $book )}}"> Dettagli </a>
+                  <a href= " {{ route('books.edit', $book )}}"> Modifica </a>
                 </td>
               </tr>
                 @endforeach
