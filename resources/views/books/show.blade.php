@@ -3,6 +3,10 @@
 @section('main-content')
 
 <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <a href="{{ route('books.index')}}" class="btn btn-primary">Torna indietro</a>
+        <a href="{{ route('books.edit', $book)}}" class="btn btn-warning">Modifica</a>
+    </div>
     <h3 class="text-danger"> {{ $book->title }} </h3>
     <div class="row">
         <div class="col-6 mt-3">  <b>Autore:</b> {{ $book->author}} </div>
