@@ -32,11 +32,16 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $book = new Book;
+        $book->fill($data);
+        $book->save();
+        return redirect()->route('books.show');
     }
 
     /**
