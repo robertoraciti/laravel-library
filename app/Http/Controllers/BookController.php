@@ -41,7 +41,7 @@ class BookController extends Controller
         $book = new Book;
         $book->fill($data);
         $book->save();
-        return redirect()->route('books.show');
+        return redirect()->route('books.show', $book);
     }
 
     /**

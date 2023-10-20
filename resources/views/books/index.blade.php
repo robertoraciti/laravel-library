@@ -2,6 +2,7 @@
 
 @section('main-content')
     <section class="container mt-5">
+      <a class="btn btn-primary" href="{{route('books.create')}}">Aggiungi nuovo libro</a>
         <table class="table">
             <thead>
               <tr>
