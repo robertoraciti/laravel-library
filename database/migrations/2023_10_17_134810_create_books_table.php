@@ -19,8 +19,8 @@ return new class extends Migration {
             $table->string('isbn', 13);
             $table->string('genre');
             $table->text('plot');
-            $table->date('publishing_year');
-            $table->tinyInteger('pages');
+            $table->year('publishing_year');
+            $table->smallInteger('pages')->unsigned();
             $table->float('price', 5, 2);
             $table->timestamps();
         });

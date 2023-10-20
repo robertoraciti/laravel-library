@@ -16,19 +16,20 @@ class BooksTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i=0; $i < 20; $i++){
+        for ($i = 0; $i < 20; $i++) {
 
-        $book = new Book();
+            $book = new Book();
 
-        $book->title = $faker->words(3,true);
-        $book->author = $faker->name();
-        $book->isbn = $faker->isbn13();
-        $book->genre = $faker->word();
-        $book->plot = $faker->paragraph();
-        $book->publishing_year = $faker->year();
-        $book->pages = $faker->numberBetween(30,999);
-        $book->price = $faker->randomFloat(2, 5, 70);
-        $book->save();
-}
+            $book->title = $faker->words(3, true);
+            $book->author = $faker->name();
+            $book->isbn = $faker->isbn13();
+            $book->genre = $faker->word();
+            $book->plot = $faker->paragraph();
+            $book->publishing_year = $faker->year();
+            $book->pages = $faker->numberBetween(30, 900);
+            $book->price = $faker->randomFloat(2, 5, 70);
+
+            $book->save();
+        }
     }
 }
