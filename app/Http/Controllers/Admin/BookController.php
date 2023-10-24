@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
+use App\Http\Requests\UpdateBookRequest;
 
 class BookController extends Controller
 {
@@ -75,9 +76,9 @@ class BookController extends Controller
      * @param  int  $id
      * * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(UpdateBookRequest $request, Book $book)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $book->update($data);
         return redirect()->route('admin.books.show', $book);
     }
