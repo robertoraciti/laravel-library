@@ -2,7 +2,7 @@
 
 @section('main-content')
     <section class="container mt-5">
-      <a class="btn btn-primary" href="{{route('books.create')}}">Aggiungi nuovo libro</a>
+      <a class="btn btn-primary" href="{{route('admin.books.create')}}">Aggiungi nuovo libro</a>
         <table class="table">
             <thead>
               <tr>
@@ -25,8 +25,8 @@
                 <td>{{$book->genre}}</td>
                 <td>{{$book->price}}</td>
                 <td>
-                  <a href= " {{ route('books.show', $book )}}"> Dettagli </a>
-                  <a href= " {{ route('books.edit', $book )}}"> Modifica </a>
+                  <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
+                  <a href= " {{ route('admin.books.edit', $book )}}"> Modifica </a>
                 </td>
               </tr>
                 @endforeach

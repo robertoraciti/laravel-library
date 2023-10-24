@@ -3,11 +3,11 @@
 @section('main-content')
     
 
-    <form action="{{route('books.update', $book)}}" method="POST">
+    <form action="{{route('admin.books.update', $book)}}" method="POST">
         @csrf
         @method('PUT')
 
-        <a href="{{ route('books.index')}}" class="btn btn-primary">Torna indietro</a>        
+        <a href="{{ route('admin.books.index')}}" class="btn btn-primary">Torna indietro</a>        
 
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
