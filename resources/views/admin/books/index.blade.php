@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('main-content')
+@section('content')
     <section class="container mt-5">
       <a class="btn btn-primary" href="{{route('admin.books.create')}}">Aggiungi nuovo libro</a>
         <table class="table">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('main-content')
+@section('content')
     
 
     <form action="{{route('admin.books.store')}}" method="POST">

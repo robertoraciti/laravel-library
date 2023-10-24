@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Http\Requests\StoreBookRequest;
 
 class BookController extends Controller
 {
@@ -35,9 +36,9 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBookRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $book = new Book;
         $book->fill($data);
