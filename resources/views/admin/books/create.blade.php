@@ -91,7 +91,7 @@
     
             <div class="mb-3">
                 <label for="plot" class="form-label">Trama</label>
-                <textarea class="form-control" name="plot" id="plot">{{old('plot')}}</textarea>
+                <textarea class="form-control" name="plot" id="plot" name="plot">{{old('plot')}}</textarea>
             </div>
     
             <button type="submit" class="btn btn-primary">Aggiungi</button>
