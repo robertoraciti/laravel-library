@@ -22,7 +22,7 @@
                 <td>{{$book->title}}</td>
                 <td>{{$book->author}}</td>
                 <td>{{$book->isbn}}</td>
-                <td>{{$book->genre?->name ?? ''}}</td>
+                <td>{!! $book->getGenreBadge() ?? '' !!}</td>
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
