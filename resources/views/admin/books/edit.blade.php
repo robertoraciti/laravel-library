@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
 
+    
     @if ($errors->any())  
     <div class="alert alert-danger">
         Correggi i seguenti errori:
@@ -50,15 +52,21 @@
         @enderror
         </div>
 
-        {{-- <div class="mb-3">
-            <label for="genre" class="form-label">Genere</label>
-            <input type="text" class="form-control @error('genre') is-invalid @enderror" id="genre" name="genre" value="{{old('genre') ?? $book->genre}}">
-            @error('genre')
+        <div class="mb-3">
+            <label for="genre_id" class="form-label">Genere</label>
+            <select name="genre_id" id="genre_id" class="form-select @error('genre_id') is-invalid @enderror">
+            <option value="">Senza genere</option>
+            @foreach ($genres as $genre)
+                <option value="{{ $genre->id }}" @if (old('genre_id') ?? $book->genre?->id == $genre->id) selected @endif>{{ $genre->name }}
+                </option>
+            @endforeach
+            </select>
+            @error('genre_id')
             <div class="invalid-feedback">
-                {{$message}}
+                {{ $message }}
             </div>
-        @enderror
-        </div> --}}
+            @enderror
+        </div>
 
         <div class="mb-3">
             <label for="publishing_year" class="form-label">Anno pubblicazione</label>
@@ -97,5 +105,5 @@
 
         <button type="submit" class="btn btn-primary">Aggiorna</button>
     </form>
-
+</div>
 @endsection
