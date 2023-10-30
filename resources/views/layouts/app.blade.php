@@ -91,6 +91,7 @@
 
         <main class="">
             @yield('content')
+            @yield('modals')
         </main>
     </div>
 </body>

@@ -27,7 +27,7 @@
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
                   <a href= " {{ route('admin.books.edit', $book )}}"> Modifica </a>
-                  <a href= " {{ route('admin.books.destroy', $book )}}" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$book->id}}"> Elimina </a>
+                  <a href= "#" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$book->id}}"> Elimina </a>
                 </td>
               </tr>
                 @endforeach
@@ -36,5 +36,33 @@
           </table>
 
           {{ $books->links('pagination::bootstrap-5') }}
+          
     </section>
+@endsection
+
+@section('modals')
+@foreach($books as $book)
+<div class="modal fade" id="delete-modal-{{$book->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="#delete-modal-{{$book->id}}">Vuoi confermare l'eliminazione?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            Vuoi davvero eliminare il progetto <br><strong>{{$book->title}}</strong> ?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <form action="{{route("admin.books.destroy", $book)}}" method="POST">
+                @method('DELETE')
+                @csrf
+
+            <button class="btn btn-primary">Elimina</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    @endforeach
 @endsection
