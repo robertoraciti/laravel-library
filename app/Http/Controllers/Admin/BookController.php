@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Genre;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 
@@ -28,8 +29,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        
-        return view('admin.books.create');
+        $genres = Genre::all();
+        return view('admin.books.create', compact('genres'));
     }
 
     /**
@@ -67,7 +68,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('admin.books.edit', compact('book'));
+        $genres = Genre::all();
+        return view('admin.books.edit', compact('book', 'genres'));
     }
 
     /**
