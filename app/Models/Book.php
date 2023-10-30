@@ -25,7 +25,7 @@ class Book extends Model
     }
 
     public function getGenreBadge(){
-        return $this->genre ? "<span class='badge mx-1' style='background-color: {$this->genre->color}'>{$this->genre->name}</span>" : 'undefined';
+        return $this->genre ? "<span class='badge mx-1' style='background-color: {$this->genre->color}'>{$this->genre->name}</span>" : "<span class='badge mx-1' style='background-color: grey'>Nessuna categoria</span>";
     }
 
 
