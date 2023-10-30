@@ -23,7 +23,7 @@ class BooksTableSeeder extends Seeder
             $book->title = $faker->words(3, true);
             $book->author = $faker->name();
             $book->isbn = $faker->isbn13();
-            $book->genre = $faker->word();
+            // $book->genre = $faker->word();
             $book->plot = $faker->paragraph();
             $book->publishing_year = $faker->year();
             $book->pages = $faker->numberBetween(30, 900);
