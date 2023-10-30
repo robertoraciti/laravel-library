@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             BooksTableSeeder::class,
             UserSeeder::class,
+            TypologySeeder::class,
+            BookTypologySeeder::class,
         ]);
     }
 }
