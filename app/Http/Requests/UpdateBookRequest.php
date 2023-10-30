@@ -27,7 +27,7 @@ class UpdateBookRequest extends FormRequest
             'title' => ['required', 'string', 'max:50'],
             'author' => ['required', 'string', 'max:50'],
             'isbn' => ['required', 'string', 'max:13'],
-            'genre' => ['required', 'string'],
+            'genre_id' => ['nullable','exists:genres,id'],
             // 'plot' => ['required', '',''],
             'publishing_year' => ['required', 'numeric'],
             'pages' => ['required', 'numeric'],
@@ -50,8 +50,7 @@ class UpdateBookRequest extends FormRequest
             'isbn.string' => 'L\isbn deve essere una stringa',
             'isbn.max' => 'L\isbn deve contenere massimo 13 caratteri',
 
-            'genre.required' => 'Il genere è obbligatorio',
-            'genre.string' => 'Il genere deve essere una stringa',
+            'genre.exists' => 'Il genere non è valido',
 
             'publishing_year.required' => 'La data è obbligatoria',
             'publishing_year.date' => 'Inserire solo l\'anno',

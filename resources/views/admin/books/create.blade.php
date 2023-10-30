@@ -58,6 +58,9 @@
                 </div>
             @enderror
             </div> --}}
+
+            
+
     
             <div class="mb-3">
                 <label for="publishing_year" class="form-label">Anno pubblicazione</label>
