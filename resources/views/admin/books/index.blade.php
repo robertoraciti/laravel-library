@@ -11,6 +11,7 @@
                 <th scope="col">Autore</th>
                 <th scope="col">ISBN</th>
                 <th scope="col">Genere</th>
+                <th scope="col">Tipologia</th>
                 <th scope="col">Prezzo</th>
                 <th scope="col">Azioni</th>
               </tr>
@@ -23,6 +24,23 @@
                 <td>{{$book->author}}</td>
                 <td>{{$book->isbn}}</td>
                 <td>{!! $book->getGenreBadge() ?? '' !!}</td>
+                <td>
+                  <p> 
+                    
+                    
+    
+                    @forelse ($book->typologies as $typology)
+                    <span class="badge rounded-pill" 
+                    
+                      style="background-color: {{ $typology->color}} "
+                      
+                      >{{$typology->name ?? ""}} </span>
+                    @empty
+                    Nessuna tipologia
+                    @endforelse
+                    
+                </p>
+                </td>
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>

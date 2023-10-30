@@ -16,8 +16,27 @@
         <div class="col-6 mt-3">  <b>N° pagine:</b> {{ $book->pages }} </div> 
         <div class="col-6 mt-3">  <b>Prezzo:</b> €{{ $book->price }} </div> 
         <div class="col-12 mt-3">  <b>Trama:</b> <br> {{ $book->plot }} </div> 
+    </div>
+    <div class="row">
+        <div class="col">
+            <p> 
+                <strong>Tipologie:</strong>
+                
 
-</div>
+                @forelse ($book->typologies as $typology)
+                <span class="badge rounded-pill" 
+                
+                  style="background-color: {{ $typology->color}} "
+                  
+                  >{{$typology->name ?? ""}} </span>
+                @empty
+                Nessuna Tipologia
+                @endforelse
+                
+            </p>
+        </div>
+        
+    </div>
 
 
 @endsection
