@@ -25,7 +25,7 @@
                 <td>{{$book->isbn}}</td>
                 <td>{!! $book->getGenreBadge() ?? '' !!}</td>
                 <td>
-                    {{-- {{!! $book->getTypologyBadge() ?? '' !!}} --}}
+                  
                   <p> 
                     @forelse ($book->typologies as $typology)
                     <span class="badge rounded-pill" 
