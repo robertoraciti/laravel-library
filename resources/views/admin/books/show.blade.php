@@ -30,7 +30,7 @@
                   
                   >{{$typology->name ?? ""}} </span>
                 @empty
-                Nessuna Tipologia
+                <span class='badge rounded-pill mx-1' style='background-color: grey'>Nessuna tipologia</span>
                 @endforelse
                 
             </p>

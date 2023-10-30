@@ -35,5 +35,10 @@ class Book extends Model
         return $this->genre ? "<span class='badge mx-1' style='background-color: {$this->genre->color}'>{$this->genre->name}</span>" : "<span class='badge mx-1' style='background-color: grey'>Nessuna categoria</span>";
     }
 
+    public function getTypologyBadge()
+    {
+        // return $this->typology ? "<span class='badge rounded-pill mx-1' style='background-color: {$this->typology->color}'>{$this->typology->name}</span>" : "<span class='badge rounded-pill mx-1' style='background-color: grey'>Nessuna tipologia</span>";
+    }
+
 
 }
