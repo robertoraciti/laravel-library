@@ -24,21 +24,9 @@
                 <td>{{$book->author}}</td>
                 <td>{{$book->isbn}}</td>
                 <td>{!! $book->getGenreBadge() ?? '' !!}</td>
-                <td>
-                  
-                  <p> 
-                    @forelse ($book->typologies as $typology)
-                    <span class="badge rounded-pill" 
-                    
-                      style="background-color: {{ $typology->color}} "
-                      
-                      >{{$typology->name ?? ""}} </span>
-                    @empty
-                    <span class='badge rounded-pill mx-1' style='background-color: grey'>Nessuna tipologia</span>
-                    @endforelse
-                    
-                </p>
-                </td>
+                <td>{!! !empty($book->getTypologyBadges()) ? $book->getTypologyBadges() : "<span class='badge rounded-pill mx-1' style='background-color: grey'>Nessuna tipologia</span>" !!}</td>
+                
+                
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>

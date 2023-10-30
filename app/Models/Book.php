@@ -39,6 +39,7 @@ class Book extends Model
     {
         $badges = "";
         foreach ($this->typologies as $typology) {
+            
             $badges .= "<span class='badge mx-1' style='background-color: {$typology->color}'>{$typology->name}</span>";
         }
         return $badges;
