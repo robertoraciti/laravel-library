@@ -27,6 +27,7 @@
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
                   <a href= " {{ route('admin.books.edit', $book )}}"> Modifica </a>
+                  <a href= " {{ route('admin.books.destroy', $book )}}" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$book->id}}"> Elimina </a>
                 </td>
               </tr>
                 @endforeach

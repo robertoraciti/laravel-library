@@ -18,7 +18,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy('id','desc')->paginate(10);
+        $books = Book::orderBy('id', 'desc')->paginate(10);
         return view('admin.books.index', compact('books'));
     }
 
@@ -90,10 +90,11 @@ class BookController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        redirect()->route('admin.books.index');
     }
 }
