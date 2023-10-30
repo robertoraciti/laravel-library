@@ -10,7 +10,7 @@
                 <th scope="col">Titolo</th>
                 <th scope="col">Autore</th>
                 <th scope="col">ISBN</th>
-                {{-- <th scope="col">Genere</th> --}}
+                <th scope="col">Genere</th>
                 <th scope="col">Prezzo</th>
                 <th scope="col">Azioni</th>
               </tr>
@@ -22,7 +22,7 @@
                 <td>{{$book->title}}</td>
                 <td>{{$book->author}}</td>
                 <td>{{$book->isbn}}</td>
-                {{-- <td>{{$book->genre}}</td> --}}
+                <td>{{$book->genre?->name ?? ''}}</td>
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
