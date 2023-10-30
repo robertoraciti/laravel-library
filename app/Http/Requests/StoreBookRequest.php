@@ -27,7 +27,7 @@ class StoreBookRequest extends FormRequest
             'title' => ['required', 'string', 'max:50'],
             'author' => ['required', 'string', 'max:50'],
             'isbn' => ['required', 'string', 'max:13'],
-            'genre' => ['required', 'string'],
+            'genre_id' => ['nullable','exists:genres,id'],
             'plot' => ['required', 'string'],
             'publishing_year' => ['required', 'numeric'],
             'pages' => ['required', 'numeric'],
@@ -50,8 +50,7 @@ class StoreBookRequest extends FormRequest
             'isbn.string' => 'L\'isbn deve essere una stringa',
             'isbn.max' => 'L\'isbn deve contenere massimo 13 caratteri',
 
-            'genre.required' => 'Il genere è obbligatorio',
-            'genre.string' => 'Il genere deve essere una stringa',
+            'genre_id.exists' => 'Il genere non è valido',
             
             'plot.required' => 'La è obbligatorio',
             'plot.string' => 'Il libro deve avere una trama',

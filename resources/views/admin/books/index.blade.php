@@ -22,7 +22,7 @@
                 <td>{{$book->title}}</td>
                 <td>{{$book->author}}</td>
                 <td>{{$book->isbn}}</td>
-                <td>{{$book->genre}}</td>
+                <td>{!! $book->getGenreBadge() ?? '' !!}</td>
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
@@ -33,5 +33,7 @@
               
             </tbody>
           </table>
+
+          {{ $books->links('pagination::bootstrap-5') }}
     </section>
 @endsection

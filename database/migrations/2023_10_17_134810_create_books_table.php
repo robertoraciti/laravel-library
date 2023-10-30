@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('title', 50);
             $table->string('author', 50);
             $table->string('isbn', 13);
-            $table->string('genre');
+            // $table->string('genre');
             $table->text('plot');
             $table->year('publishing_year');
             $table->smallInteger('pages')->unsigned();

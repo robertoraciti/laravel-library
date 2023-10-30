@@ -50,7 +50,7 @@
         @enderror
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="genre" class="form-label">Genere</label>
             <input type="text" class="form-control @error('genre') is-invalid @enderror" id="genre" name="genre" value="{{old('genre') ?? $book->genre}}">
             @error('genre')
@@ -58,7 +58,7 @@
                 {{$message}}
             </div>
         @enderror
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <label for="publishing_year" class="form-label">Anno pubblicazione</label>
