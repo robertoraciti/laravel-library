@@ -24,8 +24,7 @@
                 <td>{{$book->author}}</td>
                 <td>{{$book->isbn}}</td>
                 <td>{!! $book->getGenreBadge() ?? '' !!}</td>
-                <td>{!! !empty($book->getTypologyBadges()) ? $book->getTypologyBadges() : "<span class='badge rounded-pill mx-1' style='background-color: grey'>Nessuna tipologia</span>" !!}</td>
-                
+                <td>{!!$book->getTypologyBadges()!!}</td>
                 <td>{{$book->price}}</td>
                 <td>
                   <a href= " {{ route('admin.books.show', $book )}}"> Dettagli </a>
