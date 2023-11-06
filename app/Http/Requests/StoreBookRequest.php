@@ -27,11 +27,12 @@ class StoreBookRequest extends FormRequest
             'title' => ['required', 'string', 'max:50'],
             'author' => ['required', 'string', 'max:50'],
             'isbn' => ['required', 'string', 'max:13'],
-            'genre_id' => ['nullable','exists:genres,id'],
+            'genre_id' => ['nullable', 'exists:genres,id'],
             'plot' => ['required', 'string'],
             'publishing_year' => ['required', 'numeric'],
             'pages' => ['required', 'numeric'],
             'price' => ['required', 'numeric'],
+            'typologies' => ['nullable', 'exists:typologies,id'],
         ];
     }
 
@@ -51,8 +52,8 @@ class StoreBookRequest extends FormRequest
             'isbn.max' => 'L\'isbn deve contenere massimo 13 caratteri',
 
             'genre_id.exists' => 'Il genere non è valido',
-            
-            'plot.required' => 'La è obbligatorio',
+
+            'plot.required' => 'La Trama è obbligatoria',
             'plot.string' => 'Il libro deve avere una trama',
 
             'publishing_year.required' => 'La data è obbligatoria',
@@ -62,7 +63,10 @@ class StoreBookRequest extends FormRequest
             'pages.number' => 'Immettere numeri',
 
             'price.required' => 'Il prezzo è obbligatorio',
-            'price.number' => 'Il prezzo deve essere un numero'
+            'price.number' => 'Il prezzo deve essere un numero',
+
+            'typologies.exists' => 'Tipologia non valida',
+
         ];
     }
 }

@@ -9,6 +9,7 @@ use App\Models\Book;
 use App\Models\Genre;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use Illuminate\Support\Arr;
 
 class BookController extends Controller
 {
@@ -47,7 +48,11 @@ class BookController extends Controller
 
         $book = new Book;
         $book->fill($data);
+
         $book->save();
+        if (Arr::exists($data, 'typologies')) {
+            $book->typologies()->attach($data['typologies']);
+        }
         return redirect()->route('admin.books.show', $book);
     }
 
