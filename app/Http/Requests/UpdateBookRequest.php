@@ -32,6 +32,7 @@ class UpdateBookRequest extends FormRequest
             'publishing_year' => ['required', 'numeric'],
             'pages' => ['required', 'numeric'],
             'price' => ['required', 'numeric'],
+            'typologies' => ['nullable', 'exists:typologies,id'],
         ];
     }
 
@@ -59,7 +60,9 @@ class UpdateBookRequest extends FormRequest
             'pages.number' => 'Immettere numeri',
 
             'price.required' => 'Il prezzo è obbligatorio',
-            'price.number' => 'Il prezzo deve essere un numero'
+            'price.number' => 'Il prezzo deve essere un numero',
+            
+            'typologies.exists' => 'Tipologia non valida',
         ];
     }
 }

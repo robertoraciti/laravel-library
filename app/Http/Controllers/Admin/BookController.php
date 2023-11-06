@@ -76,7 +76,9 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         $genres = Genre::all();
-        return view('admin.books.edit', compact('book', 'genres'));
+        $typologies = Typology::all();
+        $typology_ids = $book->typologies->pluck('id')->toArray();
+        return view('admin.books.edit', compact('book', 'genres','typologies','typology_ids'));
     }
 
     /**
@@ -90,6 +92,16 @@ class BookController extends Controller
     {
         $data = $request->validated();
         $book->update($data);
+
+        if (Arr::exists($data,'typologies')) {
+
+            $book->typologies()->sync($data['typologies']);
+
+        }
+        else {
+            $book->typologies()->detach();
+
+        }
         return redirect()->route('admin.books.show', $book);
     }
 

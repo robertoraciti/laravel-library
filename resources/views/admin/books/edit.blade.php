@@ -68,6 +68,24 @@
             @enderror
         </div>
 
+        {{-- TYPOLOGIES --}}
+        <label class="form-label">Tipologie</label>
+        <div class="form-check" @error('typologies') is-invalid @enderror>
+            @foreach ($typologies as $typology)
+                <input class="form-check-control" type="checkbox" value="{{ $typology->id }}"
+                    id="typology-{{ $typology->id }}" name="typologies[]"
+                    @if (in_array($typology->id, old('typologies' , $typology_ids))) checked @endif>
+                <label class="form-check-label" for="typology-{{ $typology->id }}">
+                    {{ $typology->name }}
+                </label>
+            @endforeach
+        </div>
+        @error('typologies')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+
         <div class="mb-3">
             <label for="publishing_year" class="form-label">Anno pubblicazione</label>
             <input type="number" class="form-control @error('publishing_year') is-invalid @enderror" id="publishing_year" name="publishing_year" value="{{old('publishing_year') ?? $book->publishing_year}}">
