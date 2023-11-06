@@ -113,6 +113,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+
+        $book->typologies()->detach();
         $book->delete();
         return redirect()->route('admin.books.index');
     }
