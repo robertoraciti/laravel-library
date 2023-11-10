@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Book;
+use App\Models\Genre;
+use App\Models\Typology;
 
 class BookController extends Controller
 {
@@ -18,7 +20,7 @@ class BookController extends Controller
     {
         $books = Book::select('id','genre_id','title','author','isbn','plot','publishing_year')
             ->orderBy('id', 'desc')
-            ->with('genres:id,name,color','typology:id,name,color')
+            ->with('genre:id,name,color','typologies:id,name,color')
             ->paginate(10);
         return response()->json($books);
     }
@@ -45,7 +47,7 @@ class BookController extends Controller
         $book = Book::where('id',$id)
             ->select('id','genre_id','title','author','isbn','plot','publishing_year')
             ->orderBy('id', 'desc')
-            ->with('genres:id,name,color','typology:id,name,color')
+            ->with('genre:id,name,color','typologies:id,name,color')
             ->first();
         return response()->json($book);
     }
