@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Book;
+
 class BookController extends Controller
 {
     /**
@@ -14,7 +16,11 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::select('id','genre_id','title','author','isbn','plot','publishing_year')
+            ->orderBy('id', 'desc')
+            ->with('genres:id,name,color','typology:id,name,color')
+            ->paginate(10);
+        return response()->json($books);
     }
 
     /**
@@ -36,7 +42,12 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::where('id',$id)
+            ->select('id','genre_id','title','author','isbn','plot','publishing_year')
+            ->orderBy('id', 'desc')
+            ->with('genres:id,name,color','typology:id,name,color')
+            ->first();
+        return response()->json($book);
     }
 
     /**
